@@ -96,6 +96,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+    zIndex: 0,
   },
   header: {
     width: "80%",

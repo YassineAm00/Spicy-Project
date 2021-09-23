@@ -1,12 +1,12 @@
 import * as React from "react";
 import { StyleSheet, Text, View, Dimensions, TextInput } from "react-native";
-import MapScreen from "./components/MapScreen";
+// import MapScreen from "./components/MapScreen";
 import Profile from "./components/Profile";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <MapScreen />
+      <Profile />
     </View>
   );
 }

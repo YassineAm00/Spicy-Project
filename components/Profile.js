@@ -106,6 +106,38 @@ export default function profile() {
           />
         </View>
       </View>
+      <View style={styles.bio}>
+        <View style={styles.bio_Text}>
+          <View style={styles.text}>
+            <Icon
+              name="align-left"
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "center",
+                marginTop: "auto",
+                marginBottom: "auto",
+                marginLeft: 22,
+                marginRight: 22,
+              }}
+              size={25}
+              color="#D31245"
+            />
+            <Text
+              style={{
+                fontWeight: "bold",
+                fontSize: 25,
+                color: "gray",
+              }}
+            >
+              BIO
+            </Text>
+          </View>
+          <Text style={{ fontWeight: "100", color: "gray" }}>
+            oremtest text text text etxh tedk gdkmc kcdmcdl lkcdlcmd
+          </Text>
+        </View>
+      </View>
     </View>
   );
 }
@@ -125,11 +157,19 @@ const styles = StyleSheet.create({
   profile_edit: {
     display: "flex",
     flexDirection: "column",
-    backgroundColor: "green",
     width: "100%",
-    elevation: 6,
     paddingTop: 10,
     paddingBottom: 10,
+    position: "relative",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 4.65,
+
+    elevation: 8,
   },
   profile_item: {
     width: "100%",
@@ -151,9 +191,31 @@ const styles = StyleSheet.create({
     // backgroundColor: "red",
   },
   edit: {
-    backgroundColor: "red",
-    width: 30,
-    borderRadius: "50%",
+    backgroundColor: "white",
+    width: 40,
+    height: 40,
+    borderRadius: 50,
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    textAlign: "center",
+    position: "absolute",
+    top: 10,
+    right: 10,
+    elevation: 10,
   },
-  penIcon: {},
+  penIcon: {
+    marginTop: 3,
+  },
+  bio: {
+    padding: 10,
+    borderWidth: 1,
+  },
+  bio_Text: {
+    width: "100%",
+  },
+  text: {
+    display: "flex",
+    flexDirection: "row",
+  },
 });
