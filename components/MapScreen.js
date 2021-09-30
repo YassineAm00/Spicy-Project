@@ -1,5 +1,7 @@
 import MapView, { Marker } from "react-native-maps";
 import React, { useState, useEffect } from "react";
+import { Ionicons } from '@expo/vector-icons';
+import { AntDesign , Feather  } from '@expo/vector-icons'; 
 import {
   Platform,
   Text,
@@ -49,13 +51,16 @@ export default function App() {
     <View style={styles.container}>
       <View style={styles.header}>
         <View style={styles.headerItem} className=" col-lg-4 ">
-          <Icon name="filter" size={30} color="#D31245" />
+          {/* <Icon name="filter" size={30} color="#D31245" /> */}
+          <AntDesign name="filter" size={30} color="green" />
           <Text style={styles.header__text} style={{ color: "#D31245" }}>
             FILTER
           </Text>
         </View>
         <View style={styles.headerItem} className=" col-lg-4 ">
-          <Icon name="comment" size={30} color="#D1D3D4" />
+          {/* <Icon name="comment" size={30} color="#D1D3D4" /> */}
+          {/* <AntDesign name="message-circle" size={32} color="green" /> */}
+          <Feather name="message-circle" size={30} color="black" />
           <Text style={styles.header__text}>MESSENGER</Text>
         </View>
         <View style={styles.headerItem} className=" col-lg-4 ">
@@ -70,8 +75,8 @@ export default function App() {
           initialRegion={{
             latitude: latitude,
             longitude: longitude,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
+            latitudeDelta: 0.004757,
+            longitudeDelta: 0.006866,
           }}
         >
           <Marker
