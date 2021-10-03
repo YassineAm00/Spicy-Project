@@ -1,15 +1,26 @@
 import * as React from "react";
-import {useState , useEffect} from "react";
-import { StyleSheet, Text, View, Dimensions, TextInput, SafeAreaView } from "react-native";
-// import MapScreen from "./components/MapScreen";
+import { useState, useEffect } from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Dimensions,
+  TextInput,
+  SafeAreaView,
+} from "react-native";
+import MapScreen from "./components/MapScreen";
 // import Profile from "./components/Profile";
 // import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import ProfileScreen from "./components/ProfileScreen";
+import Filter from "./components/Filter";
 import Profile from "./components/Profile";
 
+// import { useNavigation } from "@react-navigation/native";
+// import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+// const Stack = createNativeStackNavigator();
+
 export default function App() {
-
-
   // const [originPlace, setOriginPlace] = useState(null);
   // const [destinationPlace, setDestinationPlace] = useState(null);
 
@@ -28,9 +39,8 @@ export default function App() {
   //   checkNavigation();
   // }, [originPlace, destinationPlace]);
 
-
   return (
-    <View >
+    <View>
       {/* <MapScreen /> */}
       {/* <GooglePlacesAutocomplete
       placeholder='Search'
@@ -58,7 +68,7 @@ export default function App() {
         language: 'en',
       }}
     /> */}
-          {/* <GooglePlacesAutocomplete
+      {/* <GooglePlacesAutocomplete
           placeholder="Where from?"
           onPress={(data, details = null) => {
             setOriginPlace({data, details});
@@ -82,7 +92,7 @@ export default function App() {
           // renderDescription={(data) => data.description || data.vicinity}
           // predefinedPlaces={[homePlace, workPlace]}
         /> */}
-        <Profile />
+      <MapScreen />
     </View>
   );
 }
@@ -98,72 +108,69 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     padding: 10,
-    height: '100%',
+    height: "100%",
   },
-  textInput: {
-    padding: 10,
-    backgroundColor: '#eee',
-    marginVertical: 5,
-    marginLeft: 20,
-  },
+  // textInput: {
+  //   padding: 10,
+  //   backgroundColor: "#eee",
+  //   marginVertical: 5,
+  //   marginLeft: 20,
+  // },
 
-  separator: {
-    backgroundColor: '#efefef',
-    height: 1,
-  },
-  listView: {
-    position: 'absolute',
-      top: 105,
-  },
-  autocompleteContainer: {
-    position: 'absolute',
-    top: 0,
-    left: 10,
-    right: 10,
-  },
+  // separator: {
+  //   backgroundColor: "#efefef",
+  //   height: 1,
+  // },
+  // listView: {
+  //   position: "absolute",
+  //   top: 105,
+  // },
+  // autocompleteContainer: {
+  //   position: "absolute",
+  //   top: 0,
+  //   left: 10,
+  //   right: 10,
+  // },
 
-  row: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginVertical: 10,
-  },
-  iconContainer: {
-    backgroundColor: '#a2a2a2',
-    padding: 5,
-    borderRadius: 50,
-    marginRight: 15,
-  },
-  locationText: {
+  // row: {
+  //   flexDirection: "row",
+  //   alignItems: "center",
+  //   marginVertical: 10,
+  // },
+  // iconContainer: {
+  //   backgroundColor: "#a2a2a2",
+  //   padding: 5,
+  //   borderRadius: 50,
+  //   marginRight: 15,
+  // },
+  // locationText: {},
 
-  },
-
-  circle: {
-    width: 5,
-    height: 5,
-    backgroundColor: 'black',
-    position: 'absolute',
-    top: 20,
-    left: 15,
-    borderRadius: 5,
-  },
-  line: {
-    width: 1,
-    height: 50,
-    backgroundColor: '#c4c4c4',
-    position: 'absolute',
-    top: 28,
-    left: 17,
-  },
-  square: {
-    width: 5,
-    height: 5,
-    backgroundColor: 'black',
-    position: 'absolute',
-    top: 80,
-    left: 15,
-  },
+  // circle: {
+  //   width: 5,
+  //   height: 5,
+  //   backgroundColor: "black",
+  //   position: "absolute",
+  //   top: 20,
+  //   left: 15,
+  //   borderRadius: 5,
+  // },
+  // line: {
+  //   width: 1,
+  //   height: 50,
+  //   backgroundColor: "#c4c4c4",
+  //   position: "absolute",
+  //   top: 28,
+  //   left: 17,
+  // },
+  // square: {
+  //   width: 5,
+  //   height: 5,
+  //   backgroundColor: "black",
+  //   position: "absolute",
+  //   top: 80,
+  //   left: 15,
+  // },
 });
-
 
 // import React, { useState } from 'react';
 // import { Text, View, StyleSheet, Slider } from 'react-native';

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, StyleSheet, Image, Pressable } from "react-native";
 // import Icon from "react-native-vector-icons/FontAwesome";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
@@ -16,23 +16,118 @@ import {
   FontAwesome,
   Foundation,
   Feather,
+  Ionicons,
+  MaterialCommunityIcons,
 } from "@expo/vector-icons";
+// import Slider from "rn-range-slider";
+import RangeSlider, { Slider } from "react-native-range-slider-expo";
 
 export default function profile() {
+  const [fromValue, setFromValue] = useState(0);
+  const [toValue, setToValue] = useState(0);
+  const [value, setValue] = useState(0);
+
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Icon name="arrow-left" size={25} color="#FF3B3C" />
-      </View>
-      <View style={styles.userInfoSection}>
-        <View style={{ flexDirection: "row" }}>
-          <Avatar.Image
-            source={{
-              uri: "https://api.adorable.io/avatars/80/abott@adorable.png",
+    <>
+      <View
+        style={{
+          position: "absolute",
+          top: 40,
+          right: 25,
+          // backgroundColor: "red",
+          // height: 20,
+          width: 200,
+
+          // justifyContent: "space-between",
+        }}
+      >
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "flex-end",
+            marginBottom: 7,
+          }}
+        >
+          <Image
+            style={{
+              height: 35,
+              width: 32,
+              // borderRadius: 10,
+              // position: "relative",
             }}
-            size={45}
+            source={require("../assets/3-layers.png")}
           />
-          {/* <View style={{ marginLeft: 20 }}>
+
+          <Text
+            style={{
+              fontSize: 20,
+              fontWeight: "bold",
+              color: "#FF0031",
+              alignSelf: "center",
+              marginLeft: 7,
+            }}
+          >
+            PROFILE SPYCI
+          </Text>
+        </View>
+        <Text style={{ textAlign: "right", fontSize: 11, color: "gray" }}>
+          Let's add images of you doing exciting staff to spice up your profile
+        </Text>
+      </View>
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <Icon name="arrow-left" size={25} color="#FF0031" />
+        </View>
+        <View style={styles.userInfoSection}>
+          <View style={{ flexDirection: "row" }}>
+            <View
+              style={{
+                // padding: 20,
+                backgroundColor: "white",
+                width: 55,
+                height: 55,
+                borderRadius: 55 / 2,
+                justifyContent: "center",
+                alignItems: "center",
+                borderWidth: 3,
+                borderColor: "#FF0031",
+              }}
+            >
+              {/* <Text>test</Text> */}
+              <Avatar.Image
+                source={require("../assets/Rectangle_2137.png")}
+                size={43}
+              />
+              <View
+                style={{
+                  position: "absolute",
+                  top: 6,
+                  right: -8,
+                  backgroundColor: "white",
+                  width: 20,
+                  height: 20,
+                  borderRadius: 20 / 2,
+                  justifyContent: "center",
+                  alignItems: "center",
+                  shadowColor: "#777",
+                  shadowOffset: {
+                    width: 0,
+                    height: 1,
+                  },
+                  shadowOpacity: 0.22,
+                  shadowRadius: 2.22,
+                  elevation: 7,
+                }}
+              >
+                {/* <Ionicons name="pencil-sharp" size={13} color="#FF0031" /> */}
+                <MaterialCommunityIcons
+                  name="pencil-outline"
+                  size={13}
+                  color="#FF0031"
+                />
+              </View>
+            </View>
+            {/* <View style={{ marginLeft: 20 }}>
             <Title
               style={[
                 styles.title,
@@ -46,185 +141,180 @@ export default function profile() {
             </Title>
             <Caption style={styles.caption}>@j_doe</Caption>
           </View> */}
-        </View>
-      </View>
-      <View
-        style={{
-          padding: 15,
-          borderRadius: 5,
-          shadowColor: "#777",
-          shadowOffset: {
-            width: 0,
-            height: 1,
-          },
-          shadowOpacity: 0.22,
-          shadowRadius: 2.22,
-          elevation: 7,
-        }}
-      >
-        <View style={styles.Descrow}>
-          <AntDesign
-            name="user"
-            style={{
-              marginTop: "auto",
-              marginBottom: "auto",
-              marginLeft: 10,
-              marginRight: 5,
-            }}
-            color="#FF3B3C"
-            size={25}
-          />
-          {/* <Icon name="user-marker-radius"  /> */}
-          <View>
-            <Text
-              style={{
-                color: "#777777",
-                marginLeft: 20,
-                fontWeight: "bold",
-                fontSize: 12,
-              }}
-            >
-              Name
-            </Text>
-            <Text style={{ color: "#777777", marginLeft: 20, fontSize: 15 }}>
-              Yassine Test
-            </Text>
           </View>
         </View>
-        <View style={styles.Descrow}>
-          <Feather
-            name="calendar"
-            style={{
-              marginTop: "auto",
-              marginBottom: "auto",
-              marginLeft: 10,
-              marginRight: 5,
-            }}
-            color="#FF3B3C"
-            size={25}
-          />
-          {/* <Icon name="map-marker-radius"  /> */}
-          <View>
-            <Text
-              style={{
-                color: "#777777",
-                marginLeft: 20,
-                fontWeight: "bold",
-                fontSize: 12,
-                fontWeight: "bold",
-              }}
-            >
-              DATE OF BIRTH
-            </Text>
-            <Text style={{ color: "#777777", marginLeft: 20, fontSize: 15 }}>
-              Yassine Test
-            </Text>
-          </View>
-        </View>
-        <View style={styles.Descrow}>
-          <FontAwesome
-            name="envelope-o"
-            style={{
-              marginTop: "auto",
-              marginBottom: "auto",
-              marginLeft: 10,
-              marginRight: 5,
-            }}
-            color="#FF3B3C"
-            size={25}
-          />
-          <View>
-            <Text
-              style={{
-                color: "#777777",
-                marginLeft: 20,
-                fontWeight: "bold",
-                fontSize: 12,
-                fontWeight: "bold",
-              }}
-            >
-              EMAIL
-            </Text>
-            <Text style={{ color: "#777777", marginLeft: 20, fontSize: 15 }}>
-              Yassine Test
-            </Text>
-          </View>
-        </View>
-        <View style={styles.Descrow}>
-          <AntDesign
-            name="phone"
-            style={{
-              marginTop: "auto",
-              marginBottom: "auto",
-              marginLeft: 10,
-              marginRight: 5,
-            }}
-            color="#FF3B3C"
-            size={25}
-          />
-          <View>
-            <Text
-              style={{
-                color: "#777777",
-                marginLeft: 20,
-                fontWeight: "bold",
-                fontSize: 12,
-                fontWeight: "bold",
-              }}
-            >
-              TELEPHONE
-            </Text>
-            <Text style={{ color: "#777777", marginLeft: 20, fontSize: 15 }}>
-              Yassine Test
-            </Text>
-          </View>
-        </View>
-      </View>
-
-      {/* ::::::::: Images :::::::: */}
-      <View style={styles.changeImages}>
         <View
           style={{
-            textAlign: "center",
-            // backgroundColor:'red'
+            padding: 15,
+            borderRadius: 5,
+            shadowColor: "#777",
+            shadowOffset: {
+              width: 0,
+              height: 1,
+            },
+            shadowOpacity: 0.22,
+            shadowRadius: 2.22,
+            elevation: 4,
           }}
-        >
-          <Image
-            style={{
-              height: 200,
-              width: 150,
-              borderRadius: 10,
-              position: "relative",
-            }}
-            source={require("../assets/250px-Image_created_with_a_mobile_phone.png")}
-          />
-          <View style={styles.ImageAction}>
-            <Feather name="image" size={20} color="white" />
-            <Text
-              style={{ textAlign: "center", marginLeft: 5, color: "white" }}
-            >
-              Change
-            </Text>
-          </View>
-        </View>
-        <View
-          style={{ flexDirection: "column", justifyContent: "space-between" }}
         >
           <View
             style={{
-              height: "47%",
-              width: 90,
-              borderRadius: 8,
-              marginLeft: 15,
+              position: "absolute",
+              top: 20,
+              right: 20,
+              backgroundColor: "white",
+              width: 40,
+              height: 40,
+              borderRadius: 40 / 2,
+              justifyContent: "center",
+              alignItems: "center",
+              shadowColor: "#777",
+              shadowOffset: {
+                width: 0,
+                height: 1,
+              },
+              shadowOpacity: 0.22,
+              shadowRadius: 2.22,
+              elevation: 7,
+            }}
+          >
+            <Ionicons name="pencil-sharp" size={24} color="#FF0031" />
+          </View>
+          <View style={styles.Descrow}>
+            <AntDesign
+              name="user"
+              style={{
+                marginTop: "auto",
+                marginBottom: "auto",
+                marginLeft: 10,
+                marginRight: 5,
+              }}
+              color="#FF0031"
+              size={25}
+            />
+            {/* <Icon name="user-marker-radius"  /> */}
+            <View>
+              <Text
+                style={{
+                  color: "#777777",
+                  marginLeft: 20,
+                  fontWeight: "bold",
+                  fontSize: 11,
+                }}
+              >
+                Name
+              </Text>
+              <Text style={{ color: "#777777", marginLeft: 20, fontSize: 17 }}>
+                Amanda lee
+              </Text>
+            </View>
+          </View>
+          <View style={styles.Descrow}>
+            <Feather
+              name="calendar"
+              style={{
+                marginTop: "auto",
+                marginBottom: "auto",
+                marginLeft: 10,
+                marginRight: 5,
+              }}
+              color="#FF0031"
+              size={25}
+            />
+            {/* <Icon name="map-marker-radius"  /> */}
+            <View>
+              <Text
+                style={{
+                  color: "#777777",
+                  marginLeft: 20,
+                  fontWeight: "bold",
+                  fontSize: 11,
+                  fontWeight: "bold",
+                }}
+              >
+                DATE OF BIRTH
+              </Text>
+              <Text style={{ color: "#777777", marginLeft: 20, fontSize: 17 }}>
+                21/06/1997
+              </Text>
+            </View>
+          </View>
+          <View style={styles.Descrow}>
+            <FontAwesome
+              name="envelope-o"
+              style={{
+                marginTop: "auto",
+                marginBottom: "auto",
+                marginLeft: 10,
+                marginRight: 5,
+              }}
+              color="#FF0031"
+              size={25}
+            />
+            <View>
+              <Text
+                style={{
+                  color: "#777777",
+                  marginLeft: 20,
+                  fontWeight: "bold",
+                  fontSize: 11,
+                  fontWeight: "bold",
+                }}
+              >
+                EMAIL
+              </Text>
+              <Text style={{ color: "#777777", marginLeft: 20, fontSize: 17 }}>
+                amanda.lee@gmail.com
+              </Text>
+            </View>
+          </View>
+          <View style={styles.Descrow}>
+            <AntDesign
+              name="phone"
+              style={{
+                marginTop: "auto",
+                marginBottom: "auto",
+                marginLeft: 10,
+                marginRight: 5,
+              }}
+              color="#FF0031"
+              size={25}
+            />
+            <View>
+              <Text
+                style={{
+                  color: "#777777",
+                  marginLeft: 20,
+                  fontWeight: "bold",
+                  fontSize: 11,
+                  fontWeight: "bold",
+                }}
+              >
+                TELEPHONE
+              </Text>
+              <Text style={{ color: "#777777", marginLeft: 20, fontSize: 17 }}>
+                +33 6 20 77 15 22
+              </Text>
+            </View>
+          </View>
+        </View>
+
+        {/* ::::::::: Images :::::::: */}
+        <View style={styles.changeImages}>
+          <View
+            style={{
+              textAlign: "center",
+              // backgroundColor:'red'
             }}
           >
             <Image
               style={{
-                height: "100%",
-                width: "100%",
-                borderRadius: 8,
+                height: 200,
+                width: 150,
+                borderRadius: 10,
+                position: "relative",
               }}
-              source={require("../assets/250px-Image_created_with_a_mobile_phone.png")}
+              source={require("../assets/Rectangle_2137.png")}
             />
             <View style={styles.ImageAction}>
               <Feather name="image" size={20} color="white" />
@@ -236,47 +326,88 @@ export default function profile() {
             </View>
           </View>
           <View
-            style={{
-              height: "47%",
-              width: 90,
-              borderRadius: 8,
-              marginLeft: 15,
-            }}
+            style={{ flexDirection: "column", justifyContent: "space-between" }}
           >
-            <Image
+            <View
               style={{
-                height: "100%",
-                width: "100%",
+                height: "47%",
+                width: 90,
                 borderRadius: 8,
+                marginLeft: 15,
               }}
-              source={require("../assets/250px-Image_created_with_a_mobile_phone.png")}
-            />
-            <View style={styles.ImageAction}>
-              <Feather name="image" size={20} color="white" />
-              <Text
-                style={{ textAlign: "center", marginLeft: 10, color: "white" }}
-              >
-                Add
-              </Text>
+            >
+              <Image
+                style={{
+                  height: "100%",
+                  width: "100%",
+                  borderRadius: 8,
+                }}
+                source={require("../assets/Rectangle_2137.png")}
+              />
+              <View style={styles.ImageAction}>
+                <Feather name="image" size={20} color="white" />
+                <Text
+                  style={{ textAlign: "center", marginLeft: 5, color: "white" }}
+                >
+                  Change
+                </Text>
+              </View>
             </View>
-          </View>
-          {/* <Image
+            <View
+              style={{
+                height: "47%",
+                width: 90,
+                borderRadius: 8,
+                marginLeft: 15,
+              }}
+            >
+              <Image
+                style={{
+                  height: "100%",
+                  width: "100%",
+                  borderRadius: 8,
+                }}
+                source={require("../assets/Rectangle_2137.png")}
+              />
+              <View style={styles.ImageAction}>
+                <Feather name="image" size={20} color="white" />
+                <Text
+                  style={{
+                    textAlign: "center",
+                    marginLeft: 10,
+                    color: "white",
+                  }}
+                >
+                  Add
+                </Text>
+              </View>
+            </View>
+            {/* <Image
             style={{
               height: "47%",
               width: 90,
               borderRadius: 10,
               marginLeft: 15,
             }}
-            source={require("../assets/250px-Image_created_with_a_mobile_phone.png")}
+            source={require("../assets/Rectangle_2137.png")}
           /> */}
+          </View>
         </View>
       </View>
-
+      {/* <Slider
+        style={{ width: 160, height: 80 }}
+        gravity={"center"}
+        min={200}
+        max={1000}
+        step={20}
+        selectionColor="#3df"
+        blankColor="#f618" */}
+      {/* /> */}
       {/* :::::::::: Button :::::::: */}
       <Pressable style={styles.button}>
-        <Text style={styles.text}>Click</Text>
+        <Text style={styles.text}>DONE</Text>
       </Pressable>
-    </View>
+    </>
   );
 }
 
@@ -374,12 +505,12 @@ const styles = StyleSheet.create({
     fontWeight: "500",
   },
   Descrow: {
-    marginBottom: 5,
+    marginBottom: 7,
     // backgroundColor:"red",
     flexDirection: "row",
   },
   changeImages: {
-    marginTop: 20,
+    marginTop: 12,
     flexDirection: "row",
     // backgroundColor: "red",
     justifyContent: "center",
@@ -430,23 +561,24 @@ const styles = StyleSheet.create({
     bottom: 0,
   },
   button: {
-    position:'absolute',
-    bottom:0 ,
-    width:"100%",
-    margin:'auto',
-    alignItems: 'center',
-    justifyContent: 'center',
+    position: "absolute",
+    bottom: 12,
+    width: "80%",
+    margin: "auto",
+    alignSelf: "center",
+    alignItems: "center",
+    justifyContent: "center",
     paddingVertical: 12,
     paddingHorizontal: 32,
     borderRadius: 50,
     elevation: 3,
-    backgroundColor: '#FF3B3C',
+    backgroundColor: "#FF0031",
   },
   text: {
     fontSize: 16,
     lineHeight: 21,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     letterSpacing: 0.25,
-    color: 'white',
+    color: "white",
   },
 });
